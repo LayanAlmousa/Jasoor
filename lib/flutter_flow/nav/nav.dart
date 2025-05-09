@@ -6,14 +6,17 @@ import 'package:provider/provider.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
-import '/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+
+import '/index.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
 
 const kTransitionInfoKey = '__transition_info__';
+
+GlobalKey<NavigatorState> appNavigatorKey = GlobalKey<NavigatorState>();
 
 class AppStateNotifier extends ChangeNotifier {
   AppStateNotifier._();
@@ -72,63 +75,45 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
+      navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const ResultsWidget() : const StartPageWidget(),
+          appStateNotifier.loggedIn ? ResultsWidget() : StartPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const ResultsWidget() : const StartPageWidget(),
+              appStateNotifier.loggedIn ? ResultsWidget() : StartPageWidget(),
         ),
         FFRoute(
-          name: 'VerifyPage',
-          path: '/VerifyPage',
-          builder: (context, params) => VerifyPageWidget(
-            phoneNumber: params.getParam(
-              'phoneNumber',
-              ParamType.String,
-            ),
-            verificationId: params.getParam(
-              'verificationId',
-              ParamType.String,
-            ),
-          ),
+          name: ResultsWidget.routeName,
+          path: ResultsWidget.routePath,
+          builder: (context, params) => ResultsWidget(),
         ),
         FFRoute(
-          name: 'Results',
-          path: '/results',
-          builder: (context, params) => const ResultsWidget(),
+          name: SignUpPageWidget.routeName,
+          path: SignUpPageWidget.routePath,
+          builder: (context, params) => SignUpPageWidget(),
         ),
         FFRoute(
-          name: 'PhoneAuthPage',
-          path: '/phoneAuthPage',
-          builder: (context, params) => const PhoneAuthPageWidget(),
+          name: LogInPageWidget.routeName,
+          path: LogInPageWidget.routePath,
+          builder: (context, params) => LogInPageWidget(),
         ),
         FFRoute(
-          name: 'SignUpPage',
-          path: '/signUpPage',
-          builder: (context, params) => const SignUpPageWidget(),
+          name: StartPageWidget.routeName,
+          path: StartPageWidget.routePath,
+          builder: (context, params) => StartPageWidget(),
         ),
         FFRoute(
-          name: 'LogInPage',
-          path: '/logInPage',
-          builder: (context, params) => const LogInPageWidget(),
+          name: ForgotPassPageWidget.routeName,
+          path: ForgotPassPageWidget.routePath,
+          builder: (context, params) => ForgotPassPageWidget(),
         ),
         FFRoute(
-          name: 'StartPage',
-          path: '/startPage',
-          builder: (context, params) => const StartPageWidget(),
-        ),
-        FFRoute(
-          name: 'ForgotPassPage',
-          path: '/ForgotPassPage',
-          builder: (context, params) => const ForgotPassPageWidget(),
-        ),
-        FFRoute(
-          name: 'InstructionsPage',
-          path: '/lnstructionsPage',
-          builder: (context, params) => const InstructionsPageWidget(),
+          name: InstructionsPageWidget.routeName,
+          path: InstructionsPageWidget.routePath,
+          builder: (context, params) => InstructionsPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -367,7 +352,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

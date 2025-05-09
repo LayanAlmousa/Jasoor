@@ -2,12 +2,17 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/flutter_flow_youtube_player.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'instructions_page_model.dart';
 export 'instructions_page_model.dart';
 
 class InstructionsPageWidget extends StatefulWidget {
   const InstructionsPageWidget({super.key});
+
+  static String routeName = 'InstructionsPage';
+  static String routePath = '/lnstructionsPage';
 
   @override
   State<InstructionsPageWidget> createState() => _InstructionsPageWidgetState();
@@ -37,7 +42,10 @@ class _InstructionsPageWidgetState extends State<InstructionsPageWidget> {
   Widget build(BuildContext context) {
     return YoutubeFullScreenWrapper(
       child: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
+        onTap: () {
+          FocusScope.of(context).unfocus();
+          FocusManager.instance.primaryFocus?.unfocus();
+        },
         child: Scaffold(
           key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -61,12 +69,12 @@ class _InstructionsPageWidgetState extends State<InstructionsPageWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(14.0),
+                        padding: EdgeInsets.all(14.0),
                         child: Container(
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            boxShadow: const [
+                            boxShadow: [
                               BoxShadow(
                                 blurRadius: 4.0,
                                 color: Color(0x33000000),
@@ -79,7 +87,7 @@ class _InstructionsPageWidgetState extends State<InstructionsPageWidget> {
                             borderRadius: BorderRadius.circular(24.0),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(24.0),
+                            padding: EdgeInsets.all(24.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,7 +97,7 @@ class _InstructionsPageWidgetState extends State<InstructionsPageWidget> {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           18.0, 0.0, 0.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -101,8 +109,29 @@ class _InstructionsPageWidgetState extends State<InstructionsPageWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineMedium
                                                 .override(
-                                                  fontFamily: 'Readex Pro',
+                                                  font: GoogleFonts.readexPro(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .headlineMedium
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .headlineMedium
+                                                            .fontStyle,
+                                                  ),
                                                   letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .headlineMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .headlineMedium
+                                                          .fontStyle,
                                                 ),
                                           ),
                                           SizedBox(
@@ -120,7 +149,7 @@ class _InstructionsPageWidgetState extends State<InstructionsPageWidget> {
                                   ],
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 12.0, 0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -133,20 +162,54 @@ class _InstructionsPageWidgetState extends State<InstructionsPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Inter',
+                                              font: GoogleFonts.inter(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
                                       Text(
-                                        '2- Follow the on-screen instructions to define your boundary, as shown in the following video',
+                                        '2- Follow the on-screen instructions to define your boundary, as shown in the following video.',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Inter',
+                                              font: GoogleFonts.inter(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
-                                      const FlutterFlowYoutubePlayer(
+                                      FlutterFlowYoutubePlayer(
                                         url:
                                             'https://youtu.be/GojevL05Avw?si=W0YANBOr4rJDYlVU',
                                         autoPlay: false,
@@ -157,15 +220,34 @@ class _InstructionsPageWidgetState extends State<InstructionsPageWidget> {
                                         strictRelatedVideos: true,
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 10.0, 0.0, 0.0),
                                         child: Text(
                                           '3- From the options on the home screen, choose  Jasoor to begin your journey.',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                font: GoogleFonts.inter(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ),
@@ -175,7 +257,8 @@ class _InstructionsPageWidgetState extends State<InstructionsPageWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed('Results');
+                                          context.pushNamed(
+                                              ResultsWidget.routeName);
                                         },
                                         child: ClipRRect(
                                           borderRadius:
@@ -189,9 +272,9 @@ class _InstructionsPageWidgetState extends State<InstructionsPageWidget> {
                                         ),
                                       ),
                                     ]
-                                        .divide(const SizedBox(height: 20.0))
-                                        .addToStart(const SizedBox(height: 9.0))
-                                        .addToEnd(const SizedBox(height: 9.0)),
+                                        .divide(SizedBox(height: 20.0))
+                                        .addToStart(SizedBox(height: 9.0))
+                                        .addToEnd(SizedBox(height: 9.0)),
                                   ),
                                 ),
                                 Row(
@@ -200,7 +283,8 @@ class _InstructionsPageWidgetState extends State<InstructionsPageWidget> {
                                   children: [
                                     FFButtonWidget(
                                       onPressed: () async {
-                                        context.pushNamed('Results');
+                                        context
+                                            .pushNamed(ResultsWidget.routeName);
                                       },
                                       text: 'Done',
                                       options: FFButtonOptions(
@@ -210,19 +294,36 @@ class _InstructionsPageWidgetState extends State<InstructionsPageWidget> {
                                         height:
                                             MediaQuery.sizeOf(context).height *
                                                 0.05,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 0.0),
                                         iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .primary,
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              fontFamily: 'Inter',
+                                              font: GoogleFonts.inter(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontStyle,
+                                              ),
                                               color: Colors.white,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontStyle,
                                             ),
                                         elevation: 3.0,
                                         borderSide: BorderSide(
@@ -242,7 +343,7 @@ class _InstructionsPageWidgetState extends State<InstructionsPageWidget> {
                           ),
                         ),
                       ),
-                    ].addToStart(const SizedBox(height: 58.0)),
+                    ].addToStart(SizedBox(height: 58.0)),
                   ),
                 ),
               ),

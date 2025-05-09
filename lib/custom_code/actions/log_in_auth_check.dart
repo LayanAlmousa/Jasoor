@@ -22,11 +22,6 @@ Future<String> logInAuthCheck(
         .signInWithEmailAndPassword(email: emailAddress, password: password);
   } on FirebaseAuthException catch (e) {
     // POSSIBLE ERRORS
-    //
-    // invalid-email
-    // wrong-password
-    // user-not-found
-    //
     switch (e.code) {
       case 'invalid-email':
         returnAuth =

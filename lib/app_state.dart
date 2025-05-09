@@ -22,24 +22,6 @@ class FFAppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  String _phoneNumber = '';
-  String get phoneNumber => _phoneNumber;
-  set phoneNumber(String value) {
-    _phoneNumber = value;
-  }
-
-  bool _phoneNumberFilled = false;
-  bool get phoneNumberFilled => _phoneNumberFilled;
-  set phoneNumberFilled(bool value) {
-    _phoneNumberFilled = value;
-  }
-
-  bool _countryNameFilled = false;
-  bool get countryNameFilled => _countryNameFilled;
-  set countryNameFilled(bool value) {
-    _countryNameFilled = value;
-  }
-
   DocumentReference? _userRef;
   DocumentReference? get userRef => _userRef;
   set userRef(DocumentReference? value) {

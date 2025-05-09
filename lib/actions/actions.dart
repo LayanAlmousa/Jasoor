@@ -21,7 +21,7 @@ Future showToast(
         insetPadding: EdgeInsets.zero,
         backgroundColor: Colors.transparent,
         alignment:
-            const AlignmentDirectional(0.0, 1.0).resolve(Directionality.of(context)),
+            AlignmentDirectional(0.0, 1.0).resolve(Directionality.of(context)),
         child: WebViewAware(
           child: ToastWidget(
             title: title!,

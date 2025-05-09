@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'forgot_pass_page_widget.dart' show ForgotPassPageWidget;
 import 'package:flutter/material.dart';
 

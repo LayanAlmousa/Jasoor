@@ -9,9 +9,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class UserInfoRecord extends FirestoreRecord {
   UserInfoRecord._(
-    super.reference,
-    super.data,
-  ) {
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
     _initializeFields();
   }
 
@@ -45,11 +45,6 @@ class UserInfoRecord extends FirestoreRecord {
   String get phoneNumber => _phoneNumber ?? '';
   bool hasPhoneNumber() => _phoneNumber != null;
 
-  // "anxiety_result" field.
-  String? _anxietyResult;
-  String get anxietyResult => _anxietyResult ?? '';
-  bool hasAnxietyResult() => _anxietyResult != null;
-
   // "isVerifiedLogIn" field.
   bool? _isVerifiedLogIn;
   bool get isVerifiedLogIn => _isVerifiedLogIn ?? false;
@@ -62,7 +57,6 @@ class UserInfoRecord extends FirestoreRecord {
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phone_number'] as String?;
-    _anxietyResult = snapshotData['anxiety_result'] as String?;
     _isVerifiedLogIn = snapshotData['isVerifiedLogIn'] as bool?;
   }
 
@@ -107,7 +101,6 @@ Map<String, dynamic> createUserInfoRecordData({
   String? uid,
   DateTime? createdTime,
   String? phoneNumber,
-  String? anxietyResult,
   bool? isVerifiedLogIn,
 }) {
   final firestoreData = mapToFirestore(
@@ -118,7 +111,6 @@ Map<String, dynamic> createUserInfoRecordData({
       'uid': uid,
       'created_time': createdTime,
       'phone_number': phoneNumber,
-      'anxiety_result': anxietyResult,
       'isVerifiedLogIn': isVerifiedLogIn,
     }.withoutNulls,
   );
@@ -137,7 +129,6 @@ class UserInfoRecordDocumentEquality implements Equality<UserInfoRecord> {
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
         e1?.phoneNumber == e2?.phoneNumber &&
-        e1?.anxietyResult == e2?.anxietyResult &&
         e1?.isVerifiedLogIn == e2?.isVerifiedLogIn;
   }
 
@@ -149,7 +140,6 @@ class UserInfoRecordDocumentEquality implements Equality<UserInfoRecord> {
         e?.uid,
         e?.createdTime,
         e?.phoneNumber,
-        e?.anxietyResult,
         e?.isVerifiedLogIn
       ]);
 

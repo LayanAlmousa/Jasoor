@@ -6,6 +6,7 @@ import '/flutter_flow/instant_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'toast_model.dart';
 export 'toast_model.dart';
 
@@ -16,9 +17,9 @@ class ToastWidget extends StatefulWidget {
     String? description,
     int? secondsVisible,
     required this.variant,
-  })  : title = title ?? 'Title',
-        description = description ?? 'description',
-        secondsVisible = secondsVisible ?? 5;
+  })  : this.title = title ?? 'Title',
+        this.description = description ?? 'description',
+        this.secondsVisible = secondsVisible ?? 5;
 
   final String title;
   final String description;
@@ -52,7 +53,7 @@ class _ToastWidgetState extends State<ToastWidget>
       _model.secondsRemaining = widget.secondsVisible;
       safeSetState(() {});
       _model.visibiltyTimer = InstantTimer.periodic(
-        duration: const Duration(milliseconds: 10),
+        duration: Duration(milliseconds: 10),
         callback: (timer) async {
           if (_model.visibiltyTimer.tick <= _model.secondsVisibleCent) {
             _model.progressVisible =
@@ -80,8 +81,8 @@ class _ToastWidgetState extends State<ToastWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 300.0.ms,
-            begin: const Offset(0.0, 30.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 30.0),
+            end: Offset(0.0, 0.0),
           ),
           FadeEffect(
             curve: Curves.easeInOut,
@@ -107,9 +108,9 @@ class _ToastWidgetState extends State<ToastWidget>
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, 1.0),
+      alignment: AlignmentDirectional(0.0, 1.0),
       child: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: EdgeInsets.all(12.0),
         child: Container(
           width: 250.0,
           height: 60.0,
@@ -117,11 +118,11 @@ class _ToastWidgetState extends State<ToastWidget>
             color: valueOrDefault<Color>(
               () {
                 if (widget.variant == ToastVariants.Success) {
-                  return const Color(0xFF4CD95D);
+                  return Color(0xFF4CD95D);
                 } else if (widget.variant == ToastVariants.Error) {
-                  return const Color(0xFFFF3130);
+                  return Color(0xFFFF3130);
                 } else if (widget.variant == ToastVariants.Alert) {
-                  return const Color(0xFFFFCC00);
+                  return Color(0xFFFFCC00);
                 } else {
                   return FlutterFlowTheme.of(context).primary;
                 }
@@ -131,7 +132,7 @@ class _ToastWidgetState extends State<ToastWidget>
             borderRadius: BorderRadius.circular(8.0),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: EdgeInsets.all(12.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -148,10 +149,18 @@ class _ToastWidgetState extends State<ToastWidget>
                         style: FlutterFlowTheme.of(context)
                             .labelMedium
                             .override(
-                              fontFamily: 'Inter',
+                              font: GoogleFonts.inter(
+                                fontWeight: FontWeight.bold,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontStyle,
+                              ),
                               color: FlutterFlowTheme.of(context).primaryText,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .fontStyle,
                             ),
                       ),
                       Text(
@@ -160,9 +169,22 @@ class _ToastWidgetState extends State<ToastWidget>
                           'description',
                         ),
                         style: FlutterFlowTheme.of(context).bodySmall.override(
-                              fontFamily: 'Inter',
+                              font: GoogleFonts.inter(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .fontStyle,
+                              ),
                               color: FlutterFlowTheme.of(context).primaryText,
                               letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .fontStyle,
                             ),
                       ),
                     ],
@@ -183,7 +205,7 @@ class _ToastWidgetState extends State<ToastWidget>
                     size: 24.0,
                   ),
                 ),
-              ].divide(const SizedBox(width: 4.0)),
+              ].divide(SizedBox(width: 4.0)),
             ),
           ),
         ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),
