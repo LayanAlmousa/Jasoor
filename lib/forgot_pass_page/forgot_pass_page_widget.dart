@@ -44,7 +44,6 @@ class _ForgotPassPageWidgetState extends State<ForgotPassPageWidget> {
         }
       },
     );
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

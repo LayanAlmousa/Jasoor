@@ -27,8 +27,6 @@ class _InstructionsPageWidgetState extends State<InstructionsPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => InstructionsPageModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

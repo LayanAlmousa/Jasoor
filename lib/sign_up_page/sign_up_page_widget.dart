@@ -85,7 +85,6 @@ class _SignUpPageWidgetState extends State<SignUpPageWidget> {
         }
       },
     );
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

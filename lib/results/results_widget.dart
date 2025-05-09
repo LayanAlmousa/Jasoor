@@ -42,8 +42,6 @@ class _ResultsWidgetState extends State<ResultsWidget> {
         context.pushNamed(StartPageWidget.routeName);
       }
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

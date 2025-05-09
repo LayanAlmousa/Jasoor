@@ -35,8 +35,6 @@ class _AccCreationMessageWidgetState extends State<AccCreationMessageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AccCreationMessageModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

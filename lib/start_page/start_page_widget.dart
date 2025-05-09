@@ -26,8 +26,6 @@ class _StartPageWidgetState extends State<StartPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => StartPageModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

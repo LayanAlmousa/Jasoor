@@ -25,8 +25,6 @@ class _AnxiousCardWidgetState extends State<AnxiousCardWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AnxiousCardModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

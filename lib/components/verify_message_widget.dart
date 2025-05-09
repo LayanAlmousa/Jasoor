@@ -28,8 +28,6 @@ class _VerifyMessageWidgetState extends State<VerifyMessageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => VerifyMessageModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

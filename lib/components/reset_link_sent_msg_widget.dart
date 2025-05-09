@@ -33,8 +33,6 @@ class _ResetLinkSentMsgWidgetState extends State<ResetLinkSentMsgWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ResetLinkSentMsgModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
